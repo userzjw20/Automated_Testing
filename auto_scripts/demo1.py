@@ -34,21 +34,37 @@ data2 = {
     "pageSize": 50
 }
 
-#获取cookie
+# 获取cookie
 ossToken = Cookies().get_cookie()
 
-url = "https://lt-srm-docker-06.smyjf.cn/oss-oms/marketing/queue/add"
+url = "https://lt-srm-docker-06.smyjf.cn/oss-oms/marketing/queue/add"  #新增营销队列
 url2 = "https://lt-srm-docker-06.smyjf.cn/oss-oms/marketing/queue/listPage"
-url3 = "https://lt-srm-docker-06.smyjf.cn/oss-oms/callSupplier/queryAllEnableCallSupplierConfig"
-method2= 'post'
+url3 = "https://lt-srm-docker-06.smyjf.cn/oss-oms/callSupplier/queryAllEnableCallSupplierConfig"  #查询所有外呼供应商
+post = 'post'
+get = 'get'
 
 queue_listPage = {}
-queue_listPage.update({"url":"https://lt-srm-docker-06.smyjf.cn/oss-oms/marketing/queue/listPage",
-                  "method":"post",
-                  "headers":headers,
-                  "cookie":ossToken,
-                  "data":data2
-                  })
-#发送请求
-Test_framework.excute(queue_listPage)
+queue_listPage.update(
+    {"url": url2,
+     "method": post,
+     "headers": headers,
+     "cookie": ossToken,
+     "data": data2
+     })
 
+queryAllEnableCallSupplierConfig = {}
+queryAllEnableCallSupplierConfig.update(
+    {"url": url3,
+     "method": get,
+     "headers": headers,
+     "cookie": ossToken,
+     "data": ""
+     })
+
+param_list = []
+param_list.append(queue_listPage)
+param_list.append(queryAllEnableCallSupplierConfig)
+
+# 发送请求
+for case in param_list:
+    Test_framework.excute(case)
