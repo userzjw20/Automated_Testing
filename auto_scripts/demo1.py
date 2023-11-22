@@ -39,20 +39,9 @@ data2 = {
     "pageNo": 1,
     "pageSize": 50
 }
-# 获取cookie
-# 定义登录接口参数
-urlc = "https://lt-srm-docker-06.smyjf.cn/oss-oms/usermanage/login/authenticate"
-headersc = {
-    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-}
-datac = {
-    "userCode": "zhengjiwei",
-    "password": "IhXe2FSvOWrv+IsGI4HaHI9H6o9gcUzH72NVS5EWmTm+ZAVJbyuAwtMiuBe80YbfHUyvmHAiafCxI3dFKd2MgwiiNdeGr7jvYrzIsY6PjMUr2AxMFkBXYSJdBS2rckhtWz1/qdPUoMRgX3xiiXDUcmjDS8xKaHdKlH1edewq+2k=",
-    "authCode": ""
-}
 
 #获取cookie
-ossToken = Cookies().get_cookie(urlc, headersc, datac)
+ossToken = Cookies().get_cookie()
 
 #发送请求
 Test_framework.excute(url2, 'post', headers, ossToken, data2)
