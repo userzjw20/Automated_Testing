@@ -1,10 +1,6 @@
 from Automated_Testing.auto_scripts.Cookies import Cookies
 import Test_framework
 
-url = "https://lt-srm-docker-06.smyjf.cn/oss-oms/marketing/queue/add"
-url2 = "https://lt-srm-docker-06.smyjf.cn/oss-oms/marketing/queue/listPage"
-url3 = "https://lt-srm-docker-06.smyjf.cn/oss-oms/callSupplier/queryAllEnableCallSupplierConfig"
-
 headers = {
     'Content-Type': 'application/json;charset=UTF-8',
 }
@@ -41,6 +37,18 @@ data2 = {
 #获取cookie
 ossToken = Cookies().get_cookie()
 
+url = "https://lt-srm-docker-06.smyjf.cn/oss-oms/marketing/queue/add"
+url2 = "https://lt-srm-docker-06.smyjf.cn/oss-oms/marketing/queue/listPage"
+url3 = "https://lt-srm-docker-06.smyjf.cn/oss-oms/callSupplier/queryAllEnableCallSupplierConfig"
+methed2= 'post'
+
+case_info = {}
+case_info.update({"url":"https://lt-srm-docker-06.smyjf.cn/oss-oms/marketing/queue/listPage",
+                  "method":"post",
+                  "headers":headers,
+                  "cookie":ossToken,
+                  "data":data2
+                  })
 #发送请求
-Test_framework.excute(url2, 'post', headers, ossToken, data2)
+Test_framework.excute(case_info)
 

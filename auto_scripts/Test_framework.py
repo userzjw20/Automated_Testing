@@ -1,7 +1,11 @@
 import requests
 
 
-def excute(url, method, headers, cookie, data):
-    rs = requests.request(url=url, method=method, headers=headers, cookies=cookie, json=data)
+def excute(case_info):
+    rs = requests.request(url=case_info["url"],
+                          method=case_info["method"],
+                          headers=case_info["headers"],
+                          cookies=case_info["cookie"],
+                          json=case_info["data"])
 
     print(rs.text)
