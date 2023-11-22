@@ -1,6 +1,4 @@
-
-
-from auto_scripts.Cookies import Cookies
+from Automated_Testing.auto_scripts.Cookies import Cookies
 import Test_framework
 
 url = "https://lt-srm-docker-06.smyjf.cn/oss-oms/marketing/queue/add"
