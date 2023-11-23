@@ -36,6 +36,7 @@ data2 = {
 
 # 获取cookie
 ossToken = Cookies().get_cookie()
+print(ossToken)
 
 url = "https://lt-srm-docker-06.smyjf.cn/oss-oms/marketing/queue/add"  #新增营销队列
 url2 = "https://lt-srm-docker-06.smyjf.cn/oss-oms/marketing/queue/listPage"
@@ -66,5 +67,5 @@ param_list.append(queue_listPage)
 param_list.append(queryAllEnableCallSupplierConfig)
 
 # 循环执行发送请求
-for case in param_list:
-    Test_framework.excute(case)
+# for case in param_list:
+#     Test_framework.excute(case)
