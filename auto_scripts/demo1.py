@@ -65,6 +65,6 @@ param_list = []
 param_list.append(queue_listPage)
 param_list.append(queryAllEnableCallSupplierConfig)
 
-# 发送请求
+# 循环执行发送请求
 for case in param_list:
     Test_framework.excute(case)
